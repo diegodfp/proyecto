@@ -8,13 +8,42 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Definición de filas: header, main, footer */
-    min-height: 100vh; /* Establecer altura mínima de la ventana */
+    grid-template-rows: auto 1fr auto; 
+    min-height: 100vh; 
 }
+#google-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+#google-search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin: 10PX 10PX;
+    width: 80%;
+}
+
+#google-search-button {
+    background-color: #2a7c6f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px; 
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
+}
+
+#google-search-button:hover {
+    background-color: #4eb9a7;
+}   
 .contact-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #2a7c6f;
     color: #ffffff;
     text-decoration: none;
     border-radius: 4px;
@@ -22,7 +51,7 @@ body {
 }
 
 .contact-button:hover {
-    background-color: #2980b9;
+    background-color: #4eb9a7;
 }
 /* modo oscuro */
 body:has(input:checked) #index-main {
@@ -45,31 +74,31 @@ header {
     color: #2a7c6f;
     font-family: "Brandon Grot W01 Light";
     line-height: 38.5px;
-    grid-row: 1; /* Ocupa la primera fila del grid */
+    grid-row: 1;
     grid-column: 1 / -1;
     display: flex;
-    justify-content: space-between; /* Alinea los elementos a los extremos del contenedor */
-    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .logo-container img {
-    max-width: 100px; /* Ajusta el ancho máximo de tu logo */
-    height: auto; /* Mantiene la proporción del logo */
-    margin-right: 10px; /* Ajusta el margen según sea necesario */
+    max-width: 100px; 
+    height: auto; 
+    margin-right: 10px; 
 }
 .dark-container img {
-    max-width: 40px; /* Ajusta el ancho máximo de tu logo */
-    height: auto; /* Mantiene la proporción del logo */
-    margin-right: 10px; /* Ajusta el margen según sea necesario */
+    max-width: 40px; 
+    height: auto; 
+    margin-right: 10px; 
 }
 
 .title-container {
     text-align: center;
-    flex-grow: 1; /* Permite que el título crezca y ocupe el espacio restante */
+    flex-grow: 1;
 }
 
 .title-container h1 {
-    margin: 0; /* Elimina el margen por defecto del h1 */
+    margin: 0; 
     font-size: 3rem;
 }
 
@@ -170,7 +199,7 @@ body {
 
 
 /* RESPONSIVE  INDEX */
-/* Responsive styles for mobile devices */
+
 @media only screen and (max-width: 480px) {
     #index-main {
         grid-template-columns: 1fr;
@@ -187,7 +216,7 @@ body {
     }
 }
 
-/* Responsive styles for tablets */
+/* Responsive  tablets */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     #index-main {
         grid-template-columns: 1fr;
@@ -205,12 +234,12 @@ body {
     }
 }
 
-/* Estilo específico para la página de "Hacer test de aprendizaje" */
+/* Estilos paginas de test, auditivo y visual */
 .test-header {
-    grid-row: 3; /* Ocupa la tercera fila del grid */
+    grid-row: 3;
     grid-column: 1 / -1;
     position: relative;
-    height: 400px; /* Ajusta la altura según tus necesidades */
+    height: 400px; 
 }
 
 .test-header img {
@@ -232,41 +261,40 @@ body {
 }
 
 .test-main {
-    grid-row: 4; /* Ocupa la cuarta fila del grid */
-    grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+    grid-row: 4;
+    grid-column: 1 / -1; 
     display: grid;
-    grid-template-rows: auto auto 1fr auto; /* Tres filas en el main */
-    gap: 20px; /* Espacio entre las filas */
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px; 
 }
 
 .test-section1, .test-section3 {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar horizontalmente */
-    justify-content: center; /* Centrar verticalmente */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .test-section1 div,
 .test-section3 div {
     margin: 20px;
     padding: 20px; 
-    max-width: 600px; /* Establece el ancho máximo según tus necesidades */
-    width: 100%; /* Ajusta el ancho al 100% */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    max-width: 600px; 
+    width: 100%;
+    box-sizing: border-box; 
     text-align: center;
 }
 
 
 .test-section1 h1,.test-section1 p {
-    margin: 0; /* Elimina el margen por defecto */
+    margin: 0; 
 }       
 
 .test-section2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-   /* Centrar horizontalmente */
-    justify-content: center; /* Centrar verticalmente */
+    justify-content: center; 
 }
 
 .test-section2 div {
@@ -302,11 +330,11 @@ body {
 /* Ajustes para dispositivos móviles */
 @media only screen and (max-width: 480px) {
     .test-header {
-        height: 200px; /* Ajusta la altura para dispositivos móviles */
+        height: 200px; 
     }
 
     .test-title {
-        top: 70%; /* Ajusta la posición vertical del título */
+        top: 70%; 
         font-size: 1.5rem;
         padding: 0px;
     }
@@ -315,11 +343,11 @@ body {
     .test-section3 div {
         margin: 10px;
         padding: 10px;
-        max-width: 100%; /* Ajusta el ancho máximo al 100% */
+        max-width: 100%;
     }
 
     .test-section2 {
-        grid-template-columns: repeat(1, 1fr); /* Cambia a una columna en dispositivos móviles */
+        grid-template-columns: repeat(1, 1fr); 
     }
 
     .test-section2 div {
@@ -331,21 +359,21 @@ body {
 /* Ajustes para tablets */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     .test-header {
-        height: 300px; /* Ajusta la altura para tablets */
+        height: 300px;
     }
 
     .test-title {
-        top: 80%; /* Ajusta la posición vertical del título para tablets */
+        top: 80%; 
     }
 }
 /* Reproductor de audio */
 .test-section3 {
-    max-width: 800px; /* Establece el ancho máximo deseado para la sección */
-    margin: 0 auto; /* Centra la sección en la página */
+    max-width: 800px; 
+    margin: 0 auto; 
 }
 #visual-videos{
-    max-width: 1000px; /* Establece el ancho máximo deseado para la sección */
-    margin: 0 auto; /* Centra la sección en la página */
+    max-width: 1000px; 
+    margin: 0 auto; 
 }
 .audio-container {
     display: flex;
@@ -353,8 +381,8 @@ body {
 }
 
 audio {
-    width: 100%; /* Ocupa el 100% del ancho disponible dentro de audio-container */
-    max-width: 200px; /* Establece un ancho máximo para los elementos de audio si es necesario */
+    width: 100%;
+    max-width: 200px; 
     display: inline-block;
     background-color: #3498db;
     border: none;
@@ -387,30 +415,30 @@ audio::-webkit-media-controls-play-button:hover {
 
 iframe {
     width: 100%;
-    max-width: calc(33.333% - 10px); /* Para el caso normal, 3 videos en una fila con espacio entre ellos */
-    margin-bottom: 10px; /* Espaciado inferior entre filas de videos */
+    max-width: calc(33.333% - 10px); 
+    margin-bottom: 10px; 
 }
 
 @media screen and (max-width: 767px) {
     iframe {
-        max-width: calc(50% - 10px); /* Dos videos en una fila para pantallas de 481px a 767px */
+        max-width: calc(50% - 10px);
     }
 }
 
 @media screen and (max-width: 480px) {
     iframe {
-        max-width: 100%; /* Un video por fila para pantallas de 480px o menores */
+        max-width: 100%; 
     }
 }
 /* estilos formulario */
 #formulario-main {
-    background-color: #ffffff; /* Color de fondo del formulario */
+    background-color: #ffffff;
     padding: 20px;
 }
 
 #formulario-section {
-    max-width: 600px; /* Ancho máximo del formulario */
-    margin: 0 auto; /* Centra el formulario en el contenedor */
+    max-width: 600px; 
+    margin: 0 auto;
 }
 
 form {
