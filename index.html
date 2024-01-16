@@ -20,8 +20,63 @@
         <div class="dark-container">
             <input type="checkbox" id="chk">
         </div>
+        <div class="login-container">
+            <button id="loginButton">
+                <i class="fa-solid fa-right-to-bracket"></i> Signup
+            </button>
+        </div>
     </header>
-
+    <!-- Contenido del formulario de inicio de sesión -->
+    <div class="modal" id="loginModal">
+        <div class="login-box">
+            <div class="lb-header">
+              <a href="#" class="active" id="login-box-link">Login</a>
+              <a href="#" id="signup-box-link">Sign Up</a>
+            </div>
+            <div class="social-login">
+              <a href="#">
+                <i class="fa fa-facebook fa-lg"></i>
+                Login in with facebook
+              </a>
+              <a href="#">
+                <i class="fa fa-google-plus fa-lg"></i>
+                log in with Google
+              </a>
+            </div>
+            <form class="email-login">
+              <div class="u-form-group">
+                <input type="email" placeholder="Email"/>
+              </div>
+              <div class="u-form-group">
+                <input type="password" placeholder="Password"/>
+              </div>
+              <div class="u-form-group">
+                <button>Log in</button>
+              </div>
+              <div class="u-form-group">
+                <a href="#" class="forgot-password">Forgot password?</a>
+              </div>
+            </form>
+            <form class="email-signup">
+              <div class="u-form-group">
+                <input type="email" placeholder="Email"/>
+              </div>
+              <div class="u-form-group">
+                <input type="password" placeholder="Password"/>
+              </div>
+              <div class="u-form-group">
+                <input type="password" placeholder="Confirm Password"/>
+              </div>
+              <div class="u-form-group">
+                <button>Sign Up</button>
+              </div>
+            </form>
+          </div>
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+    </div>
+    <!-- Contenido del formulario de inicio de sesión -->
     <nav>
 
         <a href="#">Inicio</a>
@@ -79,17 +134,34 @@
     </main>
 
     <footer>
-        <p> Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
+         <p>Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
     </footer>
 
     <a href="#" id="scroll-to-top">Ir arriba</a>
 
     <script>
-       const chk = document.getElementById('chk');
+        const chk = document.getElementById('chk');
+        const header = document.querySelector('header');
+
+        chk.addEventListener('change', (event) => {
+            document.body.classList.toggle('dark', event.target.checked);
+            header.classList.toggle('dark', event.target.checked);
+        });
+        
+
+        // SCRIPT MODAL LOGIN
+
+        function openModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
     
-    chk.addEventListener('change', () => {
-        document.body.classList.toggle('dark');
-    });
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        document.getElementById('loginButton').addEventListener('click', function() {
+            openModal();
+        });
     </script>
 </body>
 
