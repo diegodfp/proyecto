@@ -54,7 +54,7 @@ body {
     background-color: #4eb9a7;
 }
 /* modo oscuro */
-body:has(input:checked) #index-main {
+/* body:has(input:checked) #index-main {
     color: #FFF;
     background-color: #31394D;
 }
@@ -65,7 +65,7 @@ body:has(input:checked) .test-main {
 body:has(input:checked) header {
     color: #FFF;
     background-color: #31394D;
-}
+} */
 
 /* fin modo oscuro */
 header {
@@ -77,8 +77,8 @@ header {
     grid-row: 1;
     grid-column: 1 / -1;
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-container img {
@@ -86,11 +86,12 @@ header {
     height: auto; 
     margin-right: 10px; 
 }
-.dark-container img {
+ .dark-container  {
+    position: relative;
     max-width: 40px; 
     height: auto; 
     margin-right: 10px; 
-}
+} 
 
 .title-container {
     text-align: center;
