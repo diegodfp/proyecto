@@ -33,3 +33,5 @@ function closeModal() {
 document.getElementById('loginButton').addEventListener('click', function () {
   openModal();
 });
+
+////////// MANTENER SESION INICIADA /////

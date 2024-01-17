@@ -56,30 +56,32 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(json => console.log(json))
       .catch(error => console.error('Error!', error));
   }
-  
-  function autenticarUsuarioEnServidor(id, password) {
-    const url = `http://localhost:3000/users`;
+let foundUser;
+function autenticarUsuarioEnServidor(id, password) {
+  const url = `http://localhost:3000/users`;
 
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(response => response.json())
-    .then(users => {
-        const foundUser = users.find(user => user.id === id && user.password === password);
+  fetch(url, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  })
+  .then(response => response.json())
+  .then(users => {
+      // Quita la palabra clave 'const' para usar la variable global
+      foundUser = users.find(user => user.id === id && user.password === password);
 
-        if (foundUser) {
-          console.log('Usuario autenticado');
-          mostrarUsuarioAutenticado(foundUser.id);
-          closeModal()
-          mostrarVentanaEmergente(foundUser);
-        } else {
-            console.log('Credenciales erroneas, intente nuevamente');
-        }
-    })
-    .catch(error => console.error('Error!', error)); 
+      if (foundUser) {
+        console.log('Usuario autenticado');
+        mostrarUsuarioAutenticado(foundUser.id);
+        closeModal()
+        const userInfoString = JSON.stringify(foundUser);
+        localStorage.setItem('usuarioAutenticado', userInfoString)
+      } else {
+          alert('Credenciales erroneas, intente nuevamente');
+      }
+  })
+  .catch(error => console.error('Error!', error)); 
 }
 function mostrarUsuarioAutenticado(userName) {
   // Ocultar el botón de inicio de sesión
@@ -89,6 +91,7 @@ function mostrarUsuarioAutenticado(userName) {
   // Mostrar el contenedor del usuario y su nombre
   const userContainer = document.getElementById('userContainer');
   userContainer.style.display = 'block';
+  console.log(foundUser)
 }
 
 // cerrar modal
@@ -99,31 +102,57 @@ function closeModal() {
 
 ///// --- MOSTRAR  USUARIO ----//
 // Función para mostrar la ventana emergente
-function mostrarVentanaEmergente(userInfo) {
-  console.log(userInfo)
-  // Crear la ventana emergente y establecer propiedades
-  const popupContainer = document.createElement('div');
-  popupContainer.id = 'userPopup';
-  popupContainer.classList.add('modal2');
+// function mostrarVentanaEmergente(userInfo) {
+//   console.log(userInfo)
+  // // Crear la ventana emergente y establecer propiedades
+  // const popupContainer = document.createElement('div');
+  // popupContainer.id = 'userPopup';
+  // popupContainer.classList.add('modal2');
 
-  // Agregar contenido a la ventana emergente
-  popupContainer.innerHTML = `
-    <p><strong>Usuario:</strong> ${userInfo.id}</p>
-    <p><strong>Correo:</strong> ${userInfo.email}</p>
-    <p><strong>Nota Visual:</strong> ${userInfo.notaVisual1}</p>
-    <p><strong>Nota Audio:</strong> ${userInfo.notaAudio1}</p>
-    <span class="close" onclick="cerrarVentanaEmergente()"> <i class="fa-solid fa-circle-xmark"></i> </span>
-  `;
+  // // Agregar contenido a la ventana emergente
+  // popupContainer.innerHTML = `
+  //   <p><strong><i class="fa-solid fa-user"></i></strong>
+  //   <p><strong> ${userInfo.id}</strong></p>
+  //   <p><strong>Correo:</strong> ${userInfo.email}</p>
+  //   <p><strong>Nota Visual:</strong> ${userInfo.notaVisual1}</p>
+  //   <p> <strong>Nota Audio:</strong> ${userInfo.notaAudio1}</p>
+  //   <span onclick="cerrarSesion()"> <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</span><br>
+  //   <span class="close" onclick="cerrarVentanaEmergente()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+  // `;
 
-  // Agregar la ventana emergente al cuerpo del documento
-  document.body.appendChild(popupContainer);
+  // // Agregar la ventana emergente al cuerpo del documento
+  // document.body.appendChild(popupContainer);
 
   // Mostrar la ventana emergente al hacer clic en el botón userButton
   const userButton = document.getElementById('userButton');
   userButton.addEventListener('click', function () {
-    popupContainer.style.display = 'block';
+    // Obtener la información del usuario almacenada en localStorage
+    const storedUserInfoString = localStorage.getItem('usuarioAutenticado');
+    
+    if (storedUserInfoString) {
+      const storedUserInfo = JSON.parse(storedUserInfoString);
+      
+      // Crear la ventana emergente y establecer propiedades
+      const popupContainer = document.createElement('div');
+      popupContainer.id = 'userPopup';
+      popupContainer.classList.add('modal2');
+  
+      // Agregar contenido a la ventana emergente con la información almacenada
+      popupContainer.innerHTML = `
+        <p><strong><i class="fa-solid fa-user"></i></strong>
+        <p><strong> ${storedUserInfo.id}</strong></p>
+        <p><strong>Correo:</strong> ${storedUserInfo.email}</p>
+        <p><strong>Nota Visual:</strong> ${storedUserInfo.notaVisual1}</p>
+        <p> <strong>Nota Audio:</strong> ${storedUserInfo.notaAudio1}</p>
+        <span onclick="cerrarSesion()"> <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</span><br>
+        <span class="close" onclick="cerrarVentanaEmergente()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+      `;
+  
+      // Agregar la ventana emergente al cuerpo del documento
+      document.body.appendChild(popupContainer);
+    }
   });
-}
+
 
 // Función para cerrar la ventana emergente
 function cerrarVentanaEmergente() {
@@ -131,5 +160,22 @@ function cerrarVentanaEmergente() {
   if (popupContainer) {
     popupContainer.style.display = 'none';
   }
+}
+// Función para cerrar la sesión y eliminar la ventana emergente
+function cerrarSesion() {
+  // Eliminar la ventana emergente si existe
+  const popupContainer = document.getElementById('userPopup');
+  if (popupContainer) {
+    popupContainer.parentNode.removeChild(popupContainer);
+  }
+
+  // Mostrar el botón de inicio de sesión
+  const loginButton = document.getElementById('loginButton');
+  loginButton.style.display = 'block';
+
+  // Ocultar el contenedor del usuario
+  const userContainer = document.getElementById('userContainer');
+  userContainer.style.display = 'none';
+  alert(" Sesion cerrada correctamente")
 }
 

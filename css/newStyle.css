@@ -114,21 +114,25 @@ input[type="checkbox"]:active {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .modal2 {
-	display: none;
+	display: block;
 	position: fixed;
 	top: 34%;
 	left: 86%;
 	transform: translate(-50%, -50%);
 	z-index: 1;
 	width: 100%; /* Ajusta el ancho al 100% */
-	max-width: 400px; /* Máximo ancho del modal */
+	max-width: 350px; /* Máximo ancho del modal */
 	height: auto;
-	background-color: #aba1d4;
+	background-color: #eeeef0;
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	text-align: center;
   }
+.modal2 i{
+	font-size: 2rem;
+	cursor: pointer;
+}
 
 /* boton cerrar */
 
