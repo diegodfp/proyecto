@@ -2,167 +2,163 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/newStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/newStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="img/logopng.png" alt="Logo">
-        </div>
-        <div class="title-container">
-            <h1>Crea tu leyenda</h1>
-        </div>
-        <div class="dark-container">
-            <input type="checkbox" id="chk">
-        </div>
-        <div class="login-container">
-            <button id="loginButton">
-                <i class="fa-solid fa-right-to-bracket"></i> Signup
-            </button>
-        </div>
-    </header>
-    <!-- Contenido del formulario de inicio de sesión -->
-    <div class="modal" id="loginModal">
-        <div class="login-box">
-            <div class="lb-header">
-              <a href="#" class="active" id="login-box-link">Login</a>
-              <a href="#" id="signup-box-link">Sign Up</a>
-            </div>
-            <div class="social-login">
-              <a href="#">
-                <i class="fa fa-facebook fa-lg"></i>
-                Login in with facebook
-              </a>
-              <a href="#">
-                <i class="fa fa-google-plus fa-lg"></i>
-                log in with Google
-              </a>
-            </div>
-            <form class="email-login">
-              <div class="u-form-group">
-                <input type="email" placeholder="Email"/>
+  <header>
+    <div class="logo-container">
+      <img src="img/logopng.png" alt="Logo">
+    </div>
+    <div class="title-container">
+      <h1>Crea tu leyenda</h1>
+    </div>
+    <div class="dark-container">
+      <input type="checkbox" id="chk">
+    </div>
+    <div class="login-container" id="userContainer" style="display: none;">
+      <button id="userButton">
+        <i class="fa-solid fa-user"></i>
+      </button>
+    </div>
+    <div class="login-container">
+      <button id="loginButton">
+        <i class="fa-solid fa-right-to-bracket"></i> Signup
+      </button>
+    </div>
+    
+  </header>
+
+  <!-- Agrega el modal de registro al principio del body -->
+  <div class="modal" id="signupModal">
+    <div class="modal-content">
+      <!-- Contenido del formulario de registro -->
+      <div id="login-body">
+        
+        <!-- Botón pa ra cerrar el modal -->
+        
+      <span class="close" onclick="closeModal()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+        <div class="container" id="container">
+          <div class="form-container sign-up-container">
+            <form action="#" id="signup-form">
+              <h1>Crea tú cuenta</h1>
+              <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
               </div>
-              <div class="u-form-group">
-                <input type="password" placeholder="Password"/>
-              </div>
-              <div class="u-form-group">
-                <button>Log in</button>
-              </div>
-              <div class="u-form-group">
-                <a href="#" class="forgot-password">Forgot password?</a>
-              </div>
-            </form>
-            <form class="email-signup">
-              <div class="u-form-group">
-                <input type="email" placeholder="Email"/>
-              </div>
-              <div class="u-form-group">
-                <input type="password" placeholder="Password"/>
-              </div>
-              <div class="u-form-group">
-                <input type="password" placeholder="Confirm Password"/>
-              </div>
-              <div class="u-form-group">
-                <button>Sign Up</button>
-              </div>
+              <span>usa tu email para verificar</span>
+              <input type="text" placeholder="Name" name="user" id="user"/>
+              <input type="email" placeholder="Email" name="email"  id="email"/>
+              <input type="password" placeholder="Password" name="password" id="password"/>
+              <button type="button" id="signupButton">Sign Up</button>
             </form>
           </div>
-            <!-- Botón para cerrar el modal -->
-            <span class="close" onclick="closeModal()">&times;</span>
-        </div>
-    </div>
-    <!-- Contenido del formulario de inicio de sesión -->
-    <nav>
-
-        <a href="#">Inicio</a>
-        <a href="test.html">Hacer Test de Aprendizaje</a>
-        <a href="auditivo.html">Tipo Auditivo</a>
-        <a href="visual.html">Tipo Visual</a>
-
-    </nav>
-    <main id="index-main">
-        <section id="modulo1">
-            <form action="https://www.google.com/search" method="GET" id="google-search-form" target="_blank">
-                <input type="text" name="q" placeholder="Busca algun contenido en el sitio web"
-                    id="google-search-input">
-                <input type="submit" value="Buscar" id="google-search-button">
+          <div class="form-container sign-in-container">
+            <form action="#" id="signin-form">
+              <h1>Sign in</h1>
+              <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <span>or use your account</span>
+              <input type="text" placeholder="User" id="iniciarUser" name="iniciarUser"/>
+              <input type="password" placeholder="Password" name="iniciarPassword" id="iniciarPassword" />
+              <a href="#">Forgot your password?</a>
+              <button type="button" id="signinButton">Sign In</button>
             </form>
-            <div>
-                <h1>Bienvenido a Crea tu leyenda </h1>
-                <p>¡Explora el fascinante mundo de las leyendas a través de nuestra plataforma educativa! En Crea tu
-                    Leyenda, nos sumergimos en el intrigante universo del texto narrativo, para descubrir las historias
-                    cautivadoras que han pasado de generación en generación, comprender su importancia y crear nuestras
-                    propias leyendas.
-                </p>
+          </div>
+          <div class="overlay-container">
+            <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+              </div>
             </div>
-            <div>
-                <h2>¿Qué encontrarás en nuestro sitio?</h2>
-                <ul>
-                    <li>Exploración de Leyendas: Sumérgete en las ricas tradiciones culturales a través de leyendas
-                        seleccionadas cuidadosamente. Descubre mitos, héroes y misterios que han perdurado a lo largo
-                        del tiempo.
-                    </li>
-                    <li>Hacer Test de Aprendizaje: En Crea tu leyenda, no solo exploramos las fascinantes leyendas,
-                        ¡también nos preocupamos por cómo aprendes mejor! Te invitamos a realizar nuestro test de
-                        aprendizaje cuidadosamente elaborado para descubrir tu estilo de aprendizaje único y potenciar
-                        tu proceso de adquisición de conocimientos.
-                    </li>
-                    <li>Modos de Aprendizaje Personalizados: Adapta tu experiencia de aprendizaje según tus
-                        preferencias. Elige entre el modo auditivo para escuchar las narrativas o el modo visual para
-                        explorar imágenes y videos relacionados
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h2>¿Tienes Preguntas o Comentarios?</h2>
-                <p>Estamos aquí para ayudarte. Si tienes preguntas, sugerencias o simplemente quieres decir hola,
-                    ¡contáctanos!<br>
-                    ¡Explora, aprende y sumérgete en el emocionante mundo de las leyendas con nuestra pagina web!
-                </p>
-                <a href="formulario.html" class="contact-button">Ir al formulario</a>
-            </div>
-        </section>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- fin modal-->
 
-        <section id="modulo2">
-            <img src="img/portada.jpg" alt="noFound">
-        </section>
-    </main>
+  <nav>
 
-    <footer>
-         <p>Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
-    </footer>
+    <a href="#">Inicio</a>
+    <a href="test.html">Hacer  Test de Aprendizaje</a>
+    <a href="auditivo.html">Tipo Auditivo</a>
+    <a href="visual.html">Tipo Visual</a>
 
-    <a href="#" id="scroll-to-top">Ir arriba</a>
+  </nav>
+  <main id="index-main">
+    <section id="modulo1">
+      <form action="https://www.google.com/search" method="GET" id="google-search-form" target="_blank">
+        <input type="text" name="q" placeholder="Busca algun contenido en el sitio web" id="google-search-input">
+        <input type="submit" value="Buscar" id="google-search-button">
+      </form>
+      <div>
+        <h1>Bienvenido a Crea tu leyenda </h1>
+        <p>¡Explora el fascinante mundo de las leyendas a través de nuestra plataforma educativa! En Crea tu
+          Leyenda, nos sumergimos en el intrigante universo del texto narrativo, para descubrir las historias
+          cautivadoras que han pasado de generación en generación, comprender su importancia y crear nuestras
+          propias leyendas.
+        </p>
+      </div>
+      <div>
+        <h2>¿Qué encontrarás en nuestro sitio?</h2>
+        <ul>
+          <li>Exploración de Leyendas: Sumérgete en las ricas tradiciones culturales a través de leyendas
+            seleccionadas cuidadosamente. Descubre mitos, héroes y misterios que han perdurado a lo largo
+            del tiempo.
+          </li>
+          <li>Hacer Test de Aprendizaje: En Crea tu leyenda, no solo exploramos las fascinantes leyendas,
+            ¡también nos preocupamos por cómo aprendes mejor! Te invitamos a realizar nuestro test de
+            aprendizaje cuidadosamente elaborado para descubrir tu estilo de aprendizaje único y potenciar
+            tu proceso de adquisición de conocimientos.
+          </li>
+          <li>Modos de Aprendizaje Personalizados: Adapta tu experiencia de aprendizaje según tus
+            preferencias. Elige entre el modo auditivo para escuchar las narrativas o el modo visual para
+            explorar imágenes y videos relacionados
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>¿Tienes Preguntas o Comentarios?</h2>
+        <p>Estamos aquí para ayudarte. Si tienes preguntas, sugerencias o simplemente quieres decir hola,
+          ¡contáctanos!<br>
+          ¡Explora, aprende y sumérgete en el emocionante mundo de las leyendas con nuestra pagina web!
+        </p>
+        <a href="formulario.html" class="contact-button">Ir al formulario</a>
+      </div>
+    </section>
 
-    <script>
-        const chk = document.getElementById('chk');
-        const header = document.querySelector('header');
+    <section id="modulo2">
+      <img src="img/portada.jpg" alt="noFound">
+    </section>
+  </main>
 
-        chk.addEventListener('change', (event) => {
-            document.body.classList.toggle('dark', event.target.checked);
-            header.classList.toggle('dark', event.target.checked);
-        });
-        
+  <footer>
+    <p>Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
+  </footer>
 
-        // SCRIPT MODAL LOGIN
+  <a href="#" id="scroll-to-top">Ir arriba</a>
 
-        function openModal() {
-            document.getElementById('loginModal').style.display = 'block';
-        }
-    
-        // Función para cerrar el modal
-        function closeModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-        document.getElementById('loginButton').addEventListener('click', function() {
-            openModal();
-        });
-    </script>
+  <script src="js/visual.js">
+   
+  </script>
+  <script src="js/crud.js"></script>
 </body>
 
 </html>

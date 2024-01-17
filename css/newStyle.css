@@ -38,7 +38,7 @@ input[type="checkbox"]:checked {
         font-family: FontAwesome;
         font-size: 1vw; /* Usa vw para hacerlo relativo al ancho de la ventana */
         color: grey;;
-       
+        cursor: pointer;
 
 }
 
@@ -80,149 +80,293 @@ input[type="checkbox"]:active {
     }
 }
 
-/* /* Estilos para el modal */
+/* LOGIN ESTILOS */
+#popUpUsuario {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	width: 100%; /* Ajusta el ancho al 100% */
+	max-width: 768px; /* Máximo ancho del modal */
+	height: auto;
+	background-color: #5530e6;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+/* MODAL - EMERGENTE */
+
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100%; /* Ajusta el ancho al 100% */
+  max-width: 768px; /* Máximo ancho del modal */
+  height: auto;
+  background-color: #5530e6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
-.login-box{
-    position:relative;
-    margin: 10px auto;
-    width: 500px;
-    height: 380px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  }
-  .lb-header{
-    position:relative;
-    color: #00415d;
-    margin: 5px 5px 10px 5px;
-    padding-bottom:10px;
-    border-bottom: 1px solid #eee;
-    text-align:center;
-    height:28px;
-  }
-  .lb-header a{
-    margin: 0 25px;
-    padding: 0 20px;
-    text-decoration: none;
-    color: #666;
-    font-weight: bold;
-    font-size: 15px;
-    -webkit-transition: all 0.1s linear;
-    -moz-transition: all 0.1s linear;
-    transition: all 0.1s linear;
-  }
-  .lb-header .active{
-    color: #029f5b;
-    font-size: 18px;
-  }
-  .social-login{
-    position:relative;
-    float: left;
-    width: 100%;
-    height:auto;
-    padding: 10px 0 15px 0;
-    border-bottom: 1px solid #eee;
-  }
-  .social-login a{
-    position:relative;
-    float: left;
-    width:calc(40% - 8px);
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid rgba(0,0,0,0.05);
-    padding: 12px;
-    border-radius: 2px;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin: 0 3%;
-    text-align:center;
-  }
-  .social-login a i{
-    position: relative;
-    float: left;
-    width: 20px;
-    top: 2px;
-  }
-  .social-login a:first-child{
-    background-color: #49639F;
-  }
-  .social-login a:last-child{
-    background-color: #DF4A32;
-  }
-  .email-login,.email-signup{
-    position:relative;
-    float: left;
-    width: 100%;
-    height:auto;
-    margin-top: 20px;
-    text-align:center;
-  }
-  .u-form-group{
-    width:100%;
-    margin-bottom: 10px;
-  }
-  .u-form-group input[type="email"],
-  .u-form-group input[type="password"]{
-    width: calc(50% - 22px);
-    height:45px;
-    outline: none;
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    border-radius: 2px;
-    color: #333;
-    font-size:0.8rem;
-    -webkit-transition:all 0.1s linear;
-    -moz-transition:all 0.1s linear;
-    transition:all 0.1s linear;
-  }
-  .u-form-group input:focus{
-    border-color: #358efb;
-  }
-  .u-form-group button{
-    width:50%;
-    background-color: #1CB94E;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    font-weight: normal;
-    padding: 14px 0;
-    border-radius: 2px;
-    text-transform: uppercase;
-  }
-  .forgot-password{
-    width:50%;
-    text-align: left;
-    text-decoration: underline;
-    color: #888;
-    font-size: 0.75rem;
+.modal2 {
+	display: none;
+	position: fixed;
+	top: 34%;
+	left: 86%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	width: 100%; /* Ajusta el ancho al 100% */
+	max-width: 400px; /* Máximo ancho del modal */
+	height: auto;
+	background-color: #aba1d4;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	text-align: center;
   }
 
-/* Estilos para el botón de cerrar */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+/* boton cerrar */
+
+
+.close i {
+  cursor: pointer;
+  font-size: 2rem; /* Ajusta el tamaño del ícono dentro del botón de cerrar */
+}
+/* FIN MODAL */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+#login-body * {
+	box-sizing: border-box;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+#login-body {
+	background: #a473d4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: auto;
+  width: auto;
+	margin: -20px 0 50px;
 }
+
+
+#login-body h1 {
+	font-weight: bold;
+	margin: 0;
+}
+
+#login-body h2 {
+	text-align: center;
+}
+
+#login-body p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+#login-body span {
+	font-size: 12px;
+}
+
+#login-body a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+#login-body button {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+#login-body form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+#login-body input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+  height: 608px;
+	min-height: 480px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.overlay {
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+

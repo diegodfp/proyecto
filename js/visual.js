@@ -1,44 +1,35 @@
-// Note: CodePen does not allow use of local
-// storage (for sensible security reasons).
-// If you're adding this code to your own site,
-// reinstate the commented-out lines and the
-// code will work fully.
+const chk = document.getElementById('chk');
+const header = document.querySelector('header');
 
-const setDarkMode = (active = false) => {
-    const wrapper = document.querySelector(":root");
-    if (active) {
-      wrapper.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      wrapper.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
-  };
-  
-  const toggleDarkMode = () => {
-    const theme = document.querySelector(":root").getAttribute("data-theme");
-    // If the current theme is "light", we want to activate dark
-    setDarkMode(theme === "light");
-  };
-  
-  const initDarkMode = () => {
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-    // const themePreference = localStorage.getItem("theme");
-  
-    let active = query.matches;
-    // if (themePreference === "dark") {
-    //   active = true;
-    // }
-    // if (themePreference === "light") {
-    //   active = false;
-    // }
-  
-    setDarkMode(active);
-  
-    query.addListener(e => setDarkMode(e.matches));
-  
-    const toggleButton = document.querySelector(".js__dark-mode-toggle");
-    toggleButton.addEventListener("click", toggleDarkMode);
-  };
-  
-  initDarkMode();
+chk.addEventListener('change', (event) => {
+  document.body.classList.toggle('dark', event.target.checked);
+  header.classList.toggle('dark', event.target.checked);
+});
+
+
+// SCRIPT MODAL LOGIN
+
+function openModal() {
+  document.getElementById('signupModal').style.display = 'block';
+}
+// animaciones LOGIN
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+  container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+  container.classList.remove("right-panel-active");
+});
+
+// Función para cerrar el modal
+function closeModal() {
+  document.getElementById('signupModal').style.display = 'none';
+}
+
+document.getElementById('loginButton').addEventListener('click', function () {
+  openModal();
+});
