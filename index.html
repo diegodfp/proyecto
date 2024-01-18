@@ -27,7 +27,7 @@
     </div>
     <div class="login-container">
       <button id="loginButton">
-        <i class="fa-solid fa-right-to-bracket"></i> Signup
+        <i class="fa-solid fa-right-to-bracket"></i> <span>Signup</span> 
       </button>
     </div>
     
@@ -41,49 +41,38 @@
         
         <!-- Botón pa ra cerrar el modal -->
         
-      <span class="close" onclick="closeModal()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+      <span class="close" onclick="closeModal()"> <i class="fa-solid fa-x"></i></i> </span>
         <div class="container" id="container">
           <div class="form-container sign-up-container">
             <form action="#" id="signup-form">
               <h1>Crea tú cuenta</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>usa tu email para verificar</span>
+              
               <input type="text" placeholder="Name" name="user" id="user"/>
               <input type="email" placeholder="Email" name="email"  id="email"/>
               <input type="password" placeholder="Password" name="password" id="password"/>
-              <button type="button" id="signupButton">Sign Up</button>
+              <button type="button" id="signupButton">Registrarse</button>
             </form>
           </div>
           <div class="form-container sign-in-container">
             <form action="#" id="signin-form">
-              <h1>Sign in</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>or use your account</span>
+              <h1>Inicia Sesión</h1>
               <input type="text" placeholder="User" id="iniciarUser" name="iniciarUser"/>
               <input type="password" placeholder="Password" name="iniciarPassword" id="iniciarPassword" />
-              <a href="#">Forgot your password?</a>
-              <button type="button" id="signinButton">Sign In</button>
+              
+              <button type="button" id="signinButton">Ingresar</button>
             </form>
           </div>
           <div class="overlay-container">
             <div class="overlay">
               <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
+                <h1>Bienvenido!</h1>
+                <p>Si ya tienes una cuenta, inicia sesion</p>
                 <button class="ghost" id="signIn">Sign In</button>
               </div>
               <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+                <h1>¿No estas registrado?</h1>
+                <p>No hay problema!, ingresa tus datos y registrate</p>
+                <button class="ghost" id="signUp">Registrarse</button>
               </div>
             </div>
           </div>
@@ -104,10 +93,7 @@
   </nav>
   <main id="index-main">
     <section id="modulo1">
-      <form action="https://www.google.com/search" method="GET" id="google-search-form" target="_blank">
-        <input type="text" name="q" placeholder="Busca algun contenido en el sitio web" id="google-search-input">
-        <input type="submit" value="Buscar" id="google-search-button">
-      </form>
+      
       <div>
         <h1>Bienvenido a Crea tu leyenda </h1>
         <p>¡Explora el fascinante mundo de las leyendas a través de nuestra plataforma educativa! En Crea tu

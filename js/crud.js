@@ -77,6 +77,8 @@ function autenticarUsuarioEnServidor(id, password) {
         closeModal()
         const userInfoString = JSON.stringify(foundUser);
         localStorage.setItem('usuarioAutenticado', userInfoString)
+        alert("sesion iniciada correctamente, Bienvenido!")
+        location.reload();
       } else {
           alert('Credenciales erroneas, intente nuevamente');
       }
@@ -179,6 +181,7 @@ function cerrarSesion() {
   userContainer.style.display = 'none';
   localStorage.clear();
   alert(" Sesion cerrada correctamente")
+  location.reload();
 }
 
 //////// VERIFICAR SI HAY ALGO EN MEMORIA PARA MANTENER SESION INICIADA ///

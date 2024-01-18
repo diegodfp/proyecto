@@ -17,11 +17,11 @@
     } else {
         // Si está autenticado, verifica la condición y actualiza el estado del botón
         buttonModulo1.disabled = false;
-        buttonModulo2.disabled = usuarioAutenticado.notaAudio1 < 3;
-        buttonModulo3.disabled = usuarioAutenticado.notaAudio2 < 3;
+        buttonModulo2.disabled = usuarioAutenticado.notaVisual1 < 3;
+        buttonModulo3.disabled = usuarioAutenticado.notaVisual2 < 3;
         // Muestra el mensaje de tooltip
-        buttonModulo2.title = usuarioAutenticado.notaAudio1 < 3 ? 'Completa el Módulo 1 primero' : '';
-        buttonModulo3.title = (usuarioAutenticado.notaAudio1 < 3 || usuarioAutenticado.notaAudio2 < 3) ? 'Completa los módulos anteriores primero' : '';
+        buttonModulo2.title = usuarioAutenticado.notaVisual1 < 3 ? 'Completa el Módulo 1 primero' : '';
+        buttonModulo3.title = (usuarioAutenticado.notaVisual1 < 3 || usuarioAutenticado.notaVisual2 < 3) ? 'Completa los módulos anteriores primero' : '';
     }
 }
 
@@ -70,7 +70,7 @@
  
     let usuarioAutenticado = JSON.parse(localStorage.getItem('usuarioAutenticado')) || {};
     // Actualiza solo el campo notaAudio1
-    usuarioAutenticado.notaAudio1 = nota;
+    usuarioAutenticado.notaVisual1 = nota;
     // Almacena el objeto actualizado en el localStorage
     localStorage.setItem('usuarioAutenticado', JSON.stringify(usuarioAutenticado));
     // Muestra la nota en la consola (puedes quitar esta línea en la versión final)
@@ -100,7 +100,7 @@ function actualizarNotaEnServidor(userId, nuevaNota) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            notaAudio1: nuevaNota
+            notaVisual1: nuevaNota
             // Puedes agregar más campos según la estructura de tu usuario
         })
     })
@@ -139,7 +139,7 @@ function evaluarModulo2() {
         nota += 1;
     }
 
-    usuarioAutenticado.notaAudio2 = nota;
+    usuarioAutenticado.notaVisual2 = nota;
     // Almacena el objeto actualizado en el localStorage
     localStorage.setItem('usuarioAutenticado', JSON.stringify(usuarioAutenticado));
 
@@ -169,7 +169,7 @@ function actualizarNotaEnServidor2(userId, nuevaNota) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            notaAudio2: nuevaNota
+            notaVisual2: nuevaNota
             // Puedes agregar más campos según la estructura de tu usuario
         })
     })
@@ -207,7 +207,7 @@ function evaluarModulo3() {
     if (respuesta3 === respuestaCorrecta3) {
         nota += 1;
     }
-    usuarioAutenticado.notaAudio3 = nota;
+    usuarioAutenticado.notaVisual3 = nota;
     // Almacena el objeto actualizado en el localStorage
     localStorage.setItem('usuarioAutenticado', JSON.stringify(usuarioAutenticado));
  
@@ -238,7 +238,7 @@ function actualizarNotaEnServidor3(userId, nuevaNota) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            notaAudio3: nuevaNota
+            notaVisual3: nuevaNota
             // Puedes agregar más campos según la estructura de tu usuario
         })
     })

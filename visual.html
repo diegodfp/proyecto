@@ -8,28 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-          <img src="img/logopng.png" alt="Logo">
-        </div>
-        <div class="title-container">
-          <h1>Crea tu leyenda</h1>
-        </div>
-        <div class="dark-container">
-          <input type="checkbox" id="chk">
-        </div>
-        <div class="login-container" id="userContainer" style="display: none;">
-          <button id="userButton">
-            <i class="fa-solid fa-user"></i>
-          </button>
-        </div>
-        <div class="login-container">
-          <button id="loginButton">
-            <i class="fa-solid fa-right-to-bracket"></i> Signup
-          </button>
-        </div>
-        
-      </header>
+  <header>
+    <div class="logo-container">
+      <img src="img/logopng.png" alt="Logo">
+    </div>
+    <div class="title-container">
+      <h1>Crea tu leyenda</h1>
+    </div>
+    <div class="dark-container">
+      <input type="checkbox" id="chk">
+    </div>
+    <div class="login-container" id="userContainer" style="display: none;">
+      <button id="userButton">
+        <i class="fa-solid fa-user"></i>
+      </button>
+    </div>
+    <div class="login-container">
+      <button id="loginButton">
+        <i class="fa-solid fa-right-to-bracket"></i> <span>Signup</span> 
+      </button>
+    </div>
+    
+  </header>
 
     <nav>
         <a href="index.html">Inicio</a>
@@ -135,6 +135,9 @@
                         
                         Un vistazo a la historia y cómo las leyendas han evolucionado a lo largo del tiempo en diferentes culturas.</li>
                     </ol>
+                    <div class="button-container">
+                      <button id="buttonModulo1"> Ir a modulo 1 </button>
+                  </div>
             </div>
             <div>
                 <h2>Módulo 2: Tipos de Leyendas</h2>
@@ -148,6 +151,10 @@
                     
                         Aborda las historias contemporáneas que circulan en entornos urbanos, a menudo con un toque de misterio o lo sobrenatural.</li>
                 </ol>
+                <br><br>
+                <div class="button-container">
+                  <button id="buttonModulo2"> Ir a modulo 2 </button>
+              </div>
             </div>
             <div>
                 <h2>Módulo 3:
@@ -166,10 +173,15 @@
 
                         </li>
                     </ol>
+                    <br><br>
+                    <div class="button-container">
+                      <button id="buttonModulo3"> Ir a modulo 3 </button>
+                      
+                  </div>
             </div>
         </section>
 
-        <section id="visual-videos">
+        <section class="test-section3" id="visual-videos">
             <div>
                 <h2>Disfruta de los siguientes videos como introduccion a los modulos</h2>
                 <div class="video-container">
@@ -180,6 +192,291 @@
                 </div>
             </div>
         </section>
+                   <!-- TEMPLATE MODULO 1-->
+                   <div class="templatesModulos" id="template-modulo1"  style="display: none;">
+                    <section>
+                        <h2>Bienvenida al Mundo de las Leyendas</h2>
+                        <p>Bienvenido al emocionante mundo de las leyendas. En este primer módulo, exploraremos la importancia
+                            cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                            aprender sobre su influencia en diversas sociedades.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Definición y Características de las Leyendas</h2>
+                        <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                            esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                            distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                            leyenda.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Historia y Evolución de las Leyendas</h2>
+                        <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                            Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                            su relevancia en diversas comunidades alrededor del mundo.</p>
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                                <br>
+                                <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                                <button onclick="mostrarFormulario()"> Hacer Evaluación</button>
+                    </section>
+                    <form id="module1Form" onsubmit="event.preventDefault(); evaluarModulo1();" style="display: none;" >
+                        <h2>Evaluación del Módulo 1</h2>
+                        
+                        <div class="radio-group">
+                            <label for="question1"><strong>1. ¿Qué es una leyenda?</strong></label>
+                            <div>
+                                <input type="radio" id="q1Option1" name="question1" value="A" required>
+                                <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option2" name="question1" value="B" required>
+                                <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option3" name="question1" value="C" required>
+                                <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                            <div>
+                                <input type="radio" id="q2Option1" name="question2" value="A" required>
+                                <label for="q2Option1">A. Transmiten valores culturales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option2" name="question2" value="B" required>
+                                <label for="q2Option2">B. Son solo entretenimiento.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option3" name="question2" value="C" required>
+                                <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                            <div>
+                                <input type="radio" id="q3Option1" name="question3" value="A" required>
+                                <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option2" name="question3" value="B" required>
+                                <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option3" name="question3" value="C" required>
+                                <label for="q3Option3">C. Han desaparecido por completo.</label>
+                            </div>
+                        </div>
+        
+                        <button type="submit">Enviar Respuestas</button>
+                    </form>
+                </div>
+                <!-- FIN TEMPLATE MODULO 1-->
+                <!-- TEMPLATE MODULO 2-->
+                <div class="templatesModulos" id="template-modulo2"  style="display: none;">
+                    <section>
+                        <h2>Tipos de Leyendas</h2>
+                        <p>Bienvenido al emocionante mundo de las leyendas. En este Seguno módulo, exploraremos la importancia
+                            cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                            aprender sobre su influencia en diversas sociedades.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Definición y Características de las Leyendas</h2>
+                        <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                            esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                            distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                            leyenda.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Historia y Evolución de las Leyendas</h2>
+                        <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                            Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                            su relevancia en diversas comunidades alrededor del mundo.</p>
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                                <br>
+                                <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                                <button onclick="mostrarFormulario2()"> Hacer Evaluación</button>
+                    </section>
+                    <form id="module2Form" onsubmit="event.preventDefault(); evaluarModulo2();" style="display: none;" >
+                        <h2>Evaluación del Módulo 2</h2>
+                        
+                        <div class="radio-group">
+                            <label for="question1"><strong>1. ¿Cual de las siguientes son tipos de leyendas?</strong></label>
+                            <div>
+                                <input type="radio" id="q1Option1" name="question1" value="A" required>
+                                <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option2" name="question1" value="B" required>
+                                <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option3" name="question1" value="C" required>
+                                <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                            <div>
+                                <input type="radio" id="q2Option1" name="question2" value="A" required>
+                                <label for="q2Option1">A. Transmiten valores culturales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option2" name="question2" value="B" required>
+                                <label for="q2Option2">B. Son solo entretenimiento.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option3" name="question2" value="C" required>
+                                <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                            <div>
+                                <input type="radio" id="q3Option1" name="question3" value="A" required>
+                                <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option2" name="question3" value="B" required>
+                                <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option3" name="question3" value="C" required>
+                                <label for="q3Option3">C. Han desaparecido por completo.</label>
+                            </div>
+                        </div>
+        
+                        <button type="submit">Enviar Respuestas</button>
+                    </form>
+                </div>
+                <!-- FIN TEMPLATE MODULO 2-->
+                <!-- TEMPLATE MODULO 3-->
+                <div class="templatesModulos" id="template-modulo3"  style="display: none;">
+                    <section>
+                        <h2> Cómo Escribir Leyendas</h2>
+                        <p>Bienvenido al emocionante mundo de las leyendas. En este primer módulo, exploraremos la importancia
+                            cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                            aprender sobre su influencia en diversas sociedades.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Definición y Características de las Leyendas</h2>
+                        <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                            esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                            distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                            leyenda.</p>
+        
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+        
+                    </section>
+                    <section>
+                        <h2>Historia y Evolución de las Leyendas</h2>
+                        <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                            Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                            su relevancia en diversas comunidades alrededor del mundo.</p>
+                                <audio controls>
+                                    <source src="audio/entrevista.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                                <br>
+                                <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                                <button onclick="mostrarFormulario3()"> Hacer Evaluación</button>
+                    </section>
+                    <form id="module3Form" onsubmit="event.preventDefault(); evaluarModulo3();" style="display: none;" >
+                        <h2>Evaluación del Módulo 3</h2>
+                        
+                        <div class="radio-group">
+                            <label for="question1"><strong>1. ¿Qué es una leyenda?</strong></label>
+                            <div>
+                                <input type="radio" id="q1Option1" name="question1" value="A" required>
+                                <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option2" name="question1" value="B" required>
+                                <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1Option3" name="question1" value="C" required>
+                                <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                            <div>
+                                <input type="radio" id="q2Option1" name="question2" value="A" required>
+                                <label for="q2Option1">A. Transmiten valores culturales.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option2" name="question2" value="B" required>
+                                <label for="q2Option2">B. Son solo entretenimiento.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2Option3" name="question2" value="C" required>
+                                <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                            </div>
+                        </div>
+        
+                        <div class="radio-group">
+                            <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                            <div>
+                                <input type="radio" id="q3Option1" name="question3" value="A" required>
+                                <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option2" name="question3" value="B" required>
+                                <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3Option3" name="question3" value="C" required>
+                                <label for="q3Option3">C. Han desaparecido por completo.</label>
+                            </div>
+                        </div>
+        
+                        <button type="submit">Enviar Respuestas</button>
+                    </form>
+                </div>
+                <!-- FIN TEMPLATE MODULO 3-->
         
     </main>
     
@@ -189,5 +486,6 @@
     <a href="#" id="scroll-to-top">Ir arriba</a>
     <script src="js/visual.js"></script>
     <script src="js/crud.js"></script>
+    <script src="js/visuales.js"></script>
 </body>
 </html>

@@ -1,199 +1,498 @@
-<!DOCTYPE html>
-<html lang="es">
+    <!DOCTYPE html>
+    <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/newStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/newStyle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 
-<body>
-    <header>
-        <div class="logo-container">
-            <img src="img/logopng.png" alt="Logo">
-        </div>
-        <div class="title-container">
-            <h1>Crea tu leyenda</h1>
-        </div>
-        <div class="dark-container">
-            <input type="checkbox" id="chk">
-        </div>
-        <div class="login-container" id="userContainer" style="display: none;">
-            <button id="userButton">
+    <body>
+        <header>
+            <div class="logo-container">
+              <img src="img/logopng.png" alt="Logo">
+            </div>
+            <div class="title-container">
+              <h1>Crea tu leyenda</h1>
+            </div>
+            <div class="dark-container">
+              <input type="checkbox" id="chk">
+            </div>
+            <div class="login-container" id="userContainer" style="display: none;">
+              <button id="userButton">
                 <i class="fa-solid fa-user"></i>
-            </button>
+              </button>
+            </div>
+            <div class="login-container">
+              <button id="loginButton">
+                <i class="fa-solid fa-right-to-bracket"></i> <span>Signup</span> 
+              </button>
+            </div>
+            
+          </header>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="test.html">Hacer Test de Aprendizaje</a>
+            <a href="#">Tipo Auditivo</a>
+            <a href="visual.html">Tipo Visual</a>
+        </nav>
+
+        <div class="test-header">
+            <img src="img/auditivo.jpg" alt="Header Image">
+            <div class="test-title">Aprendizaje Auditivo</div>
         </div>
-        <div class="login-container">
-            <button id="loginButton">
-                <i class="fa-solid fa-right-to-bracket"></i> Signup
-            </button>
-        </div>
+        <!-- Agrega el modal de registro al principio del body -->
+        <div class="modal" id="signupModal">
+            <div class="modal-content">
+                <!-- Contenido del formulario de registro -->
+                <div id="login-body">
 
-    </header>
+                    <!-- Botón pa ra cerrar el modal -->
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="test.html">Hacer Test de Aprendizaje</a>
-        <a href="#">Tipo Auditivo</a>
-        <a href="visual.html">Tipo Visual</a>
-    </nav>
-
-    <div class="test-header">
-        <img src="img/auditivo.jpg" alt="Header Image">
-        <div class="test-title">Aprendizaje Auditivo</div>
-    </div>
-<!-- Agrega el modal de registro al principio del body -->
-<div class="modal" id="signupModal">
-    <div class="modal-content">
-      <!-- Contenido del formulario de registro -->
-      <div id="login-body">
-        
-        <!-- Botón pa ra cerrar el modal -->
-        
-      <span class="close" onclick="closeModal()"> <i class="fa-solid fa-circle-xmark"></i> </span>
-        <div class="container" id="container">
-          <div class="form-container sign-up-container">
-            <form action="#" id="signup-form">
-              <h1>Crea tú cuenta</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>usa tu email para verificar</span>
-              <input type="text" placeholder="Name" name="user" id="user"/>
-              <input type="email" placeholder="Email" name="email"  id="email"/>
-              <input type="password" placeholder="Password" name="password" id="password"/>
-              <button type="button" id="signupButton">Sign Up</button>
-            </form>
-          </div>
-          <div class="form-container sign-in-container">
-            <form action="#" id="signin-form">
-              <h1>Sign in</h1>
-              <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span>or use your account</span>
-              <input type="text" placeholder="User" id="iniciarUser" name="iniciarUser"/>
-              <input type="password" placeholder="Password" name="iniciarPassword" id="iniciarPassword" />
-              <a href="#">Forgot your password?</a>
-              <button type="button" id="signinButton">Sign In</button>
-            </form>
-          </div>
-          <div class="overlay-container">
-            <div class="overlay">
-              <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-              </div>
-              <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  <!-- fin modal-->
-
-
-    <main class="test-main">
-        <section class="test-section1">
-            <div>
-                <p>En esta sección, te sumergirás en una experiencia única, explorando las historias narradas y las
-                    voces que dan vida a las leyendas. Desde mitos hasta cuentos urbanos intrigantes, cada narración te
-                    transportará a través de la rica amalgama de leyendas de diferentes culturas. Prepárate para
-                    conectar de manera íntima con las historias que han perdurado a lo largo del tiempo.
-
-                    ​<br><br>
-
-                    Al seleccionar la opción auditiva, serás guiado por podcasts envolventes y entrevistas que revelarán
-                    los misterios y encantos de las leyendas. Deja que las voces te lleven en un viaje auditivo,
-                    conectando de manera íntima con las narrativas que han perdurado a lo largo del tiempo.</p><br>
-                <h2> Dividiremos el contenido en tres módulos
-                </h2>
-            </div>
-        </section>
-        <section class="test-section2">
-            <div>
-                <h2>Módulo 1:
-                    Introducción a las Leyendas</h2>
-                <ol>
-                    <li><b>Bienvenida al Mundo de las Leyendas</b><br>
-                        Breve descripción sobre la importancia cultural y la fascinación de las leyendas.</li>
-                    <li> <b>Definición y Características de las Leyendas</b><br>
-                        Explicación detallada de lo que constituye una leyenda y las características que la distinguen
-                        de otros géneros narrativos.</li>
-                    <li><b>Historia y Evolución de las Leyendas</b><br>
-                        Un vistazo a la historia y cómo las leyendas han evolucionado a lo largo del tiempo en
-                        diferentes culturas.</li>
-                </ol>
-            </div>
-            <div>
-                <h2>Módulo 2: Tipos de Leyendas</h2>
-                <ol>
-                    <li><b>Leyendas Mitológicas</b><br>
-                        Exploración de leyendas relacionadas con mitos y deidades.</li>
-                    <li><b>Leyendas Folklóricas</b><br>
-                        Examina las leyendas transmitidas oralmente a lo largo de generaciones en comunidades.</li>
-                    <li> <b>Leyendas Urbanas</b><br>
-
-                        Aborda las historias contemporáneas que circulan en entornos urbanos, a menudo con un toque de
-                        misterio o lo sobrenatural.</li>
-                </ol>
-            </div>
-            <div>
-                <h2>Módulo 3:
-                    Cómo Escribir Leyendas</h2>
-                <ol>
-                    <li><b>Elementos Clave de una Buena Leyenda</b><br>
-                        Desglose de los componentes esenciales que componen una leyenda efectiva.</li>
-                    <li><b>Análisis de Leyendas Famosas</b>
-                        Estudio de leyendas conocidas para comprender mejor la estructura y el estilo narrativo
-                    </li>
-                    <li> <b>Pasos para Escribir tu Propia Leyenda</b><br>
-                        Guía paso a paso para aquellos interesados en crear sus propias leyendas.
-                    </li>
-                </ol>
-            </div>
-        </section>
-        <section class="test-section3">
-            <div>
-                <h2>Escucha los siguientes podcast como introduccion a los modulos</h2>
-                <div class="audio-container">
-                    <audio controls>
-                        <source src="audio/entrevista.mp3" type="audio/mp3">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                    <audio controls>
-                        <source src="audio/Podcast.mp3" type="audio/mp3">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                    <audio controls>
-                        <source src="audio/lamueloona.mp3" type="audio/mp3">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
+                    <span class="close" onclick="closeModal()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+                    <div class="container" id="container">
+                        <div class="form-container sign-up-container">
+                            <form action="#" id="signup-form">
+                                <h1>Crea tú cuenta</h1>
+                                <div class="social-container">
+                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <span>usa tu email para verificar</span>
+                                <input type="text" placeholder="Name" name="user" id="user" />
+                                <input type="email" placeholder="Email" name="email" id="email" />
+                                <input type="password" placeholder="Password" name="password" id="password" />
+                                <button type="button" id="signupButton">Sign Up</button>
+                            </form>
+                        </div>
+                        <div class="form-container sign-in-container">
+                            <form action="#" id="signin-form">
+                                <h1>Sign in</h1>
+                                <div class="social-container">
+                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <span>or use your account</span>
+                                <input type="text" placeholder="User" id="iniciarUser" name="iniciarUser" />
+                                <input type="password" placeholder="Password" name="iniciarPassword" id="iniciarPassword" />
+                                <a href="#">Forgot your password?</a>
+                                <button type="button" id="signinButton">Sign In</button>
+                            </form>
+                        </div>
+                        <div class="overlay-container">
+                            <div class="overlay">
+                                <div class="overlay-panel overlay-left">
+                                    <h1>Welcome Back!</h1>
+                                    <p>To keep connected with us please login with your personal info</p>
+                                    <button class="ghost" id="signIn">Sign In</button>
+                                </div>
+                                <div class="overlay-panel overlay-right">
+                                    <h1>Hello, Friend!</h1>
+                                    <p>Enter your personal details and start journey with us</p>
+                                    <button class="ghost" id="signUp">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </section>
-    </main>
+        </div>
+        <!-- fin modal-->
 
-    <footer class="footer-test">
-        <p> Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
-    </footer>
-    <a href="#" id="scroll-to-top">Ir arriba</a>
-    <script src="js/visual.js"></script>
-    <script src="js/crud.js"></script>
-    <script src="js/auditivo.js"></script>
-</body>
 
-</html>
+        <main class="test-main">
+            <section class="test-section1">
+                <div>
+                    <p>En esta sección, te sumergirás en una experiencia única, explorando las historias narradas y las
+                        voces que dan vida a las leyendas. Desde mitos hasta cuentos urbanos intrigantes, cada narración te
+                        transportará a través de la rica amalgama de leyendas de diferentes culturas. Prepárate para
+                        conectar de manera íntima con las historias que han perdurado a lo largo del tiempo.
+
+                        ​<br><br>
+
+                        Al seleccionar la opción auditiva, serás guiado por podcasts envolventes y entrevistas que revelarán
+                        los misterios y encantos de las leyendas. Deja que las voces te lleven en un viaje auditivo,
+                        conectando de manera íntima con las narrativas que han perdurado a lo largo del tiempo.</p><br>
+                    <h2> Dividiremos el contenido en tres módulos
+                    </h2>
+                </div>
+            </section>
+            <section class="test-section2">
+                <div>
+                    <h2>Módulo 1:
+                        Introducción a las Leyendas</h2>
+                    <ol>
+                        <li><b>Bienvenida al Mundo de las Leyendas</b><br>
+                            Breve descripción sobre la importancia cultural y la fascinación de las leyendas.</li>
+                        <li> <b>Definición y Características de las Leyendas</b><br>
+                            Explicación detallada de lo que constituye una leyenda y las características que la distinguen
+                            de otros géneros narrativos.</li>
+                        <li><b>Historia y Evolución de las Leyendas</b><br>
+                            Un vistazo a la historia y cómo las leyendas han evolucionado a lo largo del tiempo en
+                            diferentes culturas.</li>
+                    </ol>
+                    <div class="button-container">
+                        <button id="buttonModulo1"> Ir a modulo 1 </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Módulo 2: Tipos de Leyendas</h2>
+                    <ol>
+                        <li><b>Leyendas Mitológicas</b><br>
+                            Exploración de leyendas relacionadas con mitos y deidades.</li>
+                        <li><b>Leyendas Folklóricas</b><br>
+                            Examina las leyendas transmitidas oralmente a lo largo de generaciones en comunidades.</li>
+                        <li> <b>Leyendas Urbanas</b><br>
+
+                            Aborda las historias contemporáneas que circulan en entornos urbanos, a menudo con un toque de
+                            misterio o lo sobrenatural.</li>
+                    </ol>
+                    <br><br>
+                    <div class="button-container">
+                        <button id="buttonModulo2"> Ir a modulo 2 </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Módulo 3:
+                        Cómo Escribir Leyendas</h2>
+                    <ol>
+                        <li><b>Elementos Clave de una Buena Leyenda</b><br>
+                            Desglose de los componentes esenciales que componen una leyenda efectiva.</li>
+                        <li><b>Análisis de Leyendas Famosas</b>
+                            Estudio de leyendas conocidas para comprender mejor la estructura y el estilo narrativo
+                        </li>
+                        <li> <b>Pasos para Escribir tu Propia Leyenda</b><br>
+                            Guía paso a paso para aquellos interesados en crear sus propias leyendas.
+                        </li>
+                    </ol>
+                    <br>
+                    <div class="button-container">
+                        <button id="buttonModulo3"> Ir a modulo 3 </button>
+                    </div>
+
+                </div>
+            </section>
+            <section class="test-section3">
+                <div>
+                    <h2>Escucha los siguientes podcast como introduccion a los modulos</h2>
+                    <div class="audio-container">
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <audio controls>
+                            <source src="audio/Podcast.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <audio controls>
+                            <source src="audio/lamueloona.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+            </section>
+            <!-- TEMPLATE MODULO 1-->
+        <div class="templatesModulos" id="template-modulo1"  style="display: none;">
+            <section>
+                <h2>Bienvenida al Mundo de las Leyendas</h2>
+                <p>Bienvenido al emocionante mundo de las leyendas. En este primer módulo, exploraremos la importancia
+                    cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                    aprender sobre su influencia en diversas sociedades.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Definición y Características de las Leyendas</h2>
+                <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                    esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                    distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                    leyenda.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Historia y Evolución de las Leyendas</h2>
+                <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                    Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                    su relevancia en diversas comunidades alrededor del mundo.</p>
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <br>
+                        <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                        <button onclick="mostrarFormulario()"> Hacer Evaluación</button>
+            </section>
+            <form id="module1Form" onsubmit="event.preventDefault(); evaluarModulo1();" style="display: none;" >
+                <h2>Evaluación del Módulo 1</h2>
+                
+                <div class="radio-group">
+                    <label for="question1"><strong>1. ¿Qué es una leyenda?</strong></label>
+                    <div>
+                        <input type="radio" id="q1Option1" name="question1" value="A" required>
+                        <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option2" name="question1" value="B" required>
+                        <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option3" name="question1" value="C" required>
+                        <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                    <div>
+                        <input type="radio" id="q2Option1" name="question2" value="A" required>
+                        <label for="q2Option1">A. Transmiten valores culturales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option2" name="question2" value="B" required>
+                        <label for="q2Option2">B. Son solo entretenimiento.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option3" name="question2" value="C" required>
+                        <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                    <div>
+                        <input type="radio" id="q3Option1" name="question3" value="A" required>
+                        <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option2" name="question3" value="B" required>
+                        <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option3" name="question3" value="C" required>
+                        <label for="q3Option3">C. Han desaparecido por completo.</label>
+                    </div>
+                </div>
+
+                <button type="submit">Enviar Respuestas</button>
+            </form>
+        </div>
+        <!-- FIN TEMPLATE MODULO 1-->
+        <!-- TEMPLATE MODULO 2-->
+        <div class="templatesModulos" id="template-modulo2"  style="display: none;">
+            <section>
+                <h2>Tipos de Leyendas</h2>
+                <p>Bienvenido al emocionante mundo de las leyendas. En este Seguno módulo, exploraremos la importancia
+                    cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                    aprender sobre su influencia en diversas sociedades.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Definición y Características de las Leyendas</h2>
+                <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                    esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                    distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                    leyenda.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Historia y Evolución de las Leyendas</h2>
+                <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                    Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                    su relevancia en diversas comunidades alrededor del mundo.</p>
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <br>
+                        <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                        <button onclick="mostrarFormulario2()"> Hacer Evaluación</button>
+            </section>
+            <form id="module2Form" onsubmit="event.preventDefault(); evaluarModulo2();" style="display: none;" >
+                <h2>Evaluación del Módulo 2</h2>
+                
+                <div class="radio-group">
+                    <label for="question1"><strong>1. ¿Cual de las siguientes son tipos de leyendas?</strong></label>
+                    <div>
+                        <input type="radio" id="q1Option1" name="question1" value="A" required>
+                        <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option2" name="question1" value="B" required>
+                        <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option3" name="question1" value="C" required>
+                        <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                    <div>
+                        <input type="radio" id="q2Option1" name="question2" value="A" required>
+                        <label for="q2Option1">A. Transmiten valores culturales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option2" name="question2" value="B" required>
+                        <label for="q2Option2">B. Son solo entretenimiento.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option3" name="question2" value="C" required>
+                        <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                    <div>
+                        <input type="radio" id="q3Option1" name="question3" value="A" required>
+                        <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option2" name="question3" value="B" required>
+                        <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option3" name="question3" value="C" required>
+                        <label for="q3Option3">C. Han desaparecido por completo.</label>
+                    </div>
+                </div>
+
+                <button type="submit">Enviar Respuestas</button>
+            </form>
+        </div>
+        <!-- FIN TEMPLATE MODULO 2-->
+        <!-- TEMPLATE MODULO 3-->
+        <div class="templatesModulos" id="template-modulo3"  style="display: none;">
+            <section>
+                <h2> Cómo Escribir Leyendas</h2>
+                <p>Bienvenido al emocionante mundo de las leyendas. En este primer módulo, exploraremos la importancia
+                    cultural y la fascinación que rodea a las leyendas. Prepárate para sumergirte en relatos asombrosos y
+                    aprender sobre su influencia en diversas sociedades.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Definición y Características de las Leyendas</h2>
+                <p>Una leyenda es mucho más que una simple historia; es un relato que ha resistido la prueba del tiempo. En
+                    esta sección, profundizaremos en la definición de leyendas y exploraremos las características que las
+                    distinguen de otros géneros narrativos. Prepárate para descubrir las claves para reconocer una verdadera
+                    leyenda.</p>
+
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+
+            </section>
+            <section>
+                <h2>Historia y Evolución de las Leyendas</h2>
+                <p>Las leyendas han evolucionado a lo largo de la historia, adaptándose a diferentes culturas y contextos.
+                    Este viaje en el tiempo nos llevará a explorar cómo estas narrativas han crecido y cambiado, manteniendo
+                    su relevancia en diversas comunidades alrededor del mundo.</p>
+                        <audio controls>
+                            <source src="audio/entrevista.mp3" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <br>
+                        <h2> Si ya estas listo/a, puedes intentar realizar la evaluacion para desbloquear los siguientes modulos</h2>
+                        <button onclick="mostrarFormulario3()"> Hacer Evaluación</button>
+            </section>
+            <form id="module3Form" onsubmit="event.preventDefault(); evaluarModulo3();" style="display: none;" >
+                <h2>Evaluación del Módulo 3</h2>
+                
+                <div class="radio-group">
+                    <label for="question1"><strong>1. ¿Qué es una leyenda?</strong></label>
+                    <div>
+                        <input type="radio" id="q1Option1" name="question1" value="A" required>
+                        <label for="q1Option1">A. Una narración tradicional con elementos fantásticos.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option2" name="question1" value="B" required>
+                        <label for="q1Option2">B. Una historia basada en hechos reales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1Option3" name="question1" value="C" required>
+                        <label for="q1Option3">C. Una ley establecida por una autoridad.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question2"><strong>2. ¿Cuál es la importancia cultural de las leyendas?</strong></label>
+                    <div>
+                        <input type="radio" id="q2Option1" name="question2" value="A" required>
+                        <label for="q2Option1">A. Transmiten valores culturales.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option2" name="question2" value="B" required>
+                        <label for="q2Option2">B. Son solo entretenimiento.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2Option3" name="question2" value="C" required>
+                        <label for="q2Option3">C. No tienen relevancia cultural.</label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label for="question3"> <strong>3. ¿Cómo han evolucionado las leyendas a lo largo del tiempo?</strong> </label>
+                    <div>
+                        <input type="radio" id="q3Option1" name="question3" value="A" required>
+                        <label for="q3Option1">A. Han permanecido sin cambios.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option2" name="question3" value="B" required>
+                        <label for="q3Option2">B. Se han adaptado a diferentes culturas y épocas.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3Option3" name="question3" value="C" required>
+                        <label for="q3Option3">C. Han desaparecido por completo.</label>
+                    </div>
+                </div>
+
+                <button type="submit">Enviar Respuestas</button>
+            </form>
+        </div>
+        <!-- FIN TEMPLATE MODULO 3-->
+        </main>
+        
+        <footer class="footer-test">
+            <p> Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
+        </footer>
+        <a href="#" id="scroll-to-top">Ir arriba</a>
+        <script src="js/visual.js"></script>
+        <script src="js/crud.js"></script>
+        <script src="js/auditivo.js"></script>
+    </body>
+
+    </html>

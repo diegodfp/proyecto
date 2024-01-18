@@ -93,7 +93,49 @@ function todasSonIguales(array, valor) {
   });
 }
 
-// Función para cerrar la encuesta
-
-
 //// FIN SCRIPT FORMULARIO///
+
+////  SCRIPT AUDITIVO///
+function mostrarFormulario(){
+ let  formulario = document.getElementById("module1Form");
+ formulario.style.display = "block";
+}
+
+document.getElementById("buttonModulo1").addEventListener("click", function() {
+  // Oculta la sección actual
+  document.querySelector(".test-section3").style.display = "none";
+  document.getElementById("template-modulo2").style.display = "none";
+   document.getElementById("template-modulo3").style.display = "none  ";
+
+  // Muestra el template del Módulo 1
+  document.getElementById("template-modulo1").style.display = "block";
+});
+
+function mostrarFormulario2(){
+  let  formulario = document.getElementById("module2Form");
+  formulario.style.display = "block";
+ }
+ 
+ document.getElementById("buttonModulo2").addEventListener("click", function() {
+   // Oculta la sección actual
+   document.querySelector(".test-section3").style.display = "none";
+   document.getElementById("template-modulo1").style.display = "none";
+   document.getElementById("template-modulo3").style.display = "none";
+ 
+   // Muestra el template del Módulo 1
+   document.getElementById("template-modulo2").style.display = "block";
+ });
+
+ function mostrarFormulario3(){
+  let  formulario = document.getElementById("module3Form");
+  formulario.style.display = "block";
+ }
+ 
+ document.getElementById("buttonModulo3").addEventListener("click", function() {
+   // Oculta la sección actual
+   document.querySelector(".test-section3").style.display = "none";
+   document.getElementById("template-modulo1").style.display = "none";
+   document.getElementById("template-modulo2").style.display = "none";
+   // Muestra el template del Módulo 1
+   document.getElementById("template-modulo3").style.display = "block";
+ });

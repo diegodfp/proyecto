@@ -296,6 +296,30 @@ body {
     
 }
 
+.templatesModulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    
+}
+.templatesModulos  button{
+    background-color: #2a7c6f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+.templatesModulos p, .templatesModulos h2{
+    margin: 20px auto  ;
+    max-width: 50%;
+}
+
 .test-section1 div,
 .test-section3 div {
     margin: 20px;
@@ -342,6 +366,24 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+.test-section2 button {
+    background-color: #2a7c6f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:disabled {
+    background-color: grey; /* Cambia el color a rojo (puedes ajustarlo según tus preferencias) */
+    color: #FFFFFF; /* Cambia el color del texto para que sea legible en el fondo rojo */
+}
+.test-section2 .button-container{
+text-align: center;
+border: #ffffff;
 }
 
 .test-section3 button:hover {
