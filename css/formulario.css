@@ -1,0 +1,22 @@
+.test-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+   
+}
+
+#buttonContainer{
+    text-align: center;
+    margin-bottom: 10px;
+}
+#buttonContainer button {
+    background-color: #2a7c6f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+ }

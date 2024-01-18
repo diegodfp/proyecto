@@ -156,9 +156,10 @@ function closeModal() {
 
 // Función para cerrar la ventana emergente
 function cerrarVentanaEmergente() {
+  // Eliminar la ventana emergente si existe
   const popupContainer = document.getElementById('userPopup');
   if (popupContainer) {
-    popupContainer.style.display = 'none';
+    popupContainer.parentNode.removeChild(popupContainer);
   }
 }
 // Función para cerrar la sesión y eliminar la ventana emergente
@@ -176,6 +177,18 @@ function cerrarSesion() {
   // Ocultar el contenedor del usuario
   const userContainer = document.getElementById('userContainer');
   userContainer.style.display = 'none';
+  localStorage.clear();
   alert(" Sesion cerrada correctamente")
 }
 
+//////// VERIFICAR SI HAY ALGO EN MEMORIA PARA MANTENER SESION INICIADA ///
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Verificar si hay un usuario autenticado en localStorage
+  const storedUser = localStorage.getItem('usuarioAutenticado');
+
+  if (storedUser) {
+    const user = JSON.parse(storedUser);
+    mostrarUsuarioAutenticado(user.id);
+  } 
+});

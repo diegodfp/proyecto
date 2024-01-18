@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": "diegodfp",
+      "email": "diegodfp",
+      "password": "12345"
+    },
+    {
+      "id": "diegodfp08",
+      "email": "aaa@aaa",
+      "password": "12962108"
+    },
+    {
+      "id": "carlos",
+      "email": "carlos",
+      "password": "1234"
+    },
+    {
+      "id": "5",
+      "email": "5",
+      "password": "5"
+    },
+    {
+      "id": "diegoo",
+      "email": "diego",
+      "password": "123",
+      "notaVisual1": 0,
+      "notaVisual2": 0,
+      "notaVisual3": 0,
+      "notaAudio1": 0,
+      "notaAudio2": 0,
+      "notaAudio3": 0
+    },
+    {
+      "id": "10",
+      "email": "15",
+      "password": "12345",
+      "notaVisual1": 0,
+      "notaVisual2": 0,
+      "notaVisual3": 0,
+      "notaAudio1": 0,
+      "notaAudio2": 0,
+      "notaAudio3": 0
+    },
+    {
+      "id": "10",
+      "email": "10",
+      "password": "10",
+      "notaVisual1": 0,
+      "notaVisual2": 0,
+      "notaVisual3": 0,
+      "notaAudio1": 0,
+      "notaAudio2": 0,
+      "notaAudio3": 0
+    }
+  ]
+}

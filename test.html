@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/newStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-        <header>
-            <div class="logo-container">
-                <img src="img/logopng.png" alt="Logo">
-            </div>
-            <div class="title-container">
-                <h1>Crea tu leyenda</h1>
-            </div>
-            <div class="dark-container">
-                <input type="checkbox" id="dark-mode-toggle">
-                <label for="dark-mode-toggle" id="dark-mode-label"><img src="img/modoOscuro.png" alt=""></label>
-            </div>
-        </header>
+    <header>
+        <div class="logo-container">
+          <img src="img/logopng.png" alt="Logo">
+        </div>
+        <div class="title-container">
+          <h1>Crea tu leyenda</h1>
+        </div>
+        <div class="dark-container">
+          <input type="checkbox" id="chk">
+        </div>
+        <div class="login-container" id="userContainer" style="display: none;">
+          <button id="userButton">
+            <i class="fa-solid fa-user"></i>
+          </button>
+        </div>
+        <div class="login-container">
+          <button id="loginButton">
+            <i class="fa-solid fa-right-to-bracket"></i> Signup
+          </button>
+        </div>
+        
+      </header>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="#">Hacer Test de Aprendizaje</a>
@@ -29,6 +42,67 @@
         <img src="img/test.jpg" alt="Header Image">
         <div class="test-title">Test de Aprendizaje</div>
     </div>
+
+    <!-- Agrega el modal de registro al principio del body -->
+  <div class="modal" id="signupModal">
+    <div class="modal-content">
+      <!-- Contenido del formulario de registro -->
+      <div id="login-body">
+        
+        <!-- Botón pa ra cerrar el modal -->
+        
+      <span class="close" onclick="closeModal()"> <i class="fa-solid fa-circle-xmark"></i> </span>
+        <div class="container" id="container">
+          <div class="form-container sign-up-container">
+            <form action="#" id="signup-form">
+              <h1>Crea tú cuenta</h1>
+              <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <span>usa tu email para verificar</span>
+              <input type="text" placeholder="Name" name="user" id="user"/>
+              <input type="email" placeholder="Email" name="email"  id="email"/>
+              <input type="password" placeholder="Password" name="password" id="password"/>
+              <button type="button" id="signupButton">Sign Up</button>
+            </form>
+          </div>
+          <div class="form-container sign-in-container">
+            <form action="#" id="signin-form">
+              <h1>Sign in</h1>
+              <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <span>or use your account</span>
+              <input type="text" placeholder="User" id="iniciarUser" name="iniciarUser"/>
+              <input type="password" placeholder="Password" name="iniciarPassword" id="iniciarPassword" />
+              <a href="#">Forgot your password?</a>
+              <button type="button" id="signinButton">Sign In</button>
+            </form>
+          </div>
+          <div class="overlay-container">
+            <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- fin modal-->
 
     <main class="test-main">
         <section class="test-section1">
@@ -59,16 +133,151 @@
                 <h1>¿Estás Listo para Conocerte Mejor?</h1>
                 <p>Haz clic en "Comenzar el Test" y sumérgete en una experiencia educativa que se adapta a ti. ¡Descubre, aprende  con Crea tu Leyenda!</p>
                 <br>
-                <a href="https://www.psicoactiva.com/test/educacion-y-aprendizaje/test-de-estilos-de-aprendizaje/" id="start-link" target="_blank">
-                <button id="start-button">Comenzar el Test</button>
-                </a>
+                <button id="start-button" onclick="mostrarFormulario()">Comenzar el Test</button>
+                
             </div>
         </section>
     </main>
-    
+    <!--   TEMPLATE DEL FORMULARIO -->
+    <div id="formularioContainer" class="test-form-container" style="display: none;">
+        <form id="testForm" onsubmit="event.preventDefault();">
+            <ol class="test-list">
+                <li>
+                    <h3>¿Qué tipo de examen realizas con mayor facilidad?</h3>
+                    <div class="form-group form-md-radios">
+                        <div class="md-radio-list">
+                            <div class="md-radio">
+                                <input type="radio" id="P1_R1" name="P1_R" value="A" class="md-radiobtn">
+                                <label class="radio-label" for="P1_R1"><span></span><span class="check"></span><span
+                                        class="box"></span>Examen escrito</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P1_R2" name="P1_R" value="B" class="md-radiobtn">
+                                <label class="radio-label" for="P1_R2"><span></span><span class="check"></span><span
+                                        class="box"></span>Examen oral</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P1_R3" name="P1_R" value="C" class="md-radiobtn">
+                                <label class="radio-label" for="P1_R3"><span></span><span class="check"></span><span
+                                        class="box"></span>Examen de opción múltiple</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li>
+                    <h3>Cuando tienes que aprender algo de memoria…</h3>
+                    <div class="form-group form-md-radios">
+                        <div class="md-radio-list">
+                            <div class="md-radio">
+                                <input type="radio" id="P2_R1" name="P2_R" value="A" class="md-radiobtn">
+                                <label class="radio-label" for="P2_R1"><span></span><span class="check"></span><span
+                                        class="box"></span>Memorizo lo que veo y recuerdo la imagen (por ejemplo, la página del
+                                    libro)</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P2_R2" name="P2_R" value="B" class="md-radiobtn">
+                                <label class="radio-label" for="P2_R2"><span></span><span class="check"></span><span
+                                        class="box"></span>Memorizo mejor si repito lo estudiado rítmicamente y recuerdo paso a
+                                    paso</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P2_R3" name="P2_R" value="C" class="md-radiobtn">
+                                <label class="radio-label" for="P2_R3"><span></span><span class="check"></span><span
+                                        class="box"></span>Memorizo a base de pasear y mirar, y recuerdo una idea general mejor que
+                                    los detalles</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li>
+                    <h3>Cuando estás en clase y el profesor explica algo que está escrito en la pizarra o en tu libro, te es más
+                        fácil seguir las explicaciones…</h3>
+                    <div class="form-group form-md-radios">
+                        <div class="md-radio-list">
+                            <div class="md-radio">
+                                <input type="radio" id="P3_R1" name="P3_R" value="A" class="md-radiobtn">
+                                <label class="radio-label" for="P3_R1"><span></span><span class="check"></span><span
+                                        class="box"></span>Escuchando al profesor.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P3_R2" name="P3_R" value="B" class="md-radiobtn">
+                                <label class="radio-label" for="P3_R2"><span></span><span class="check"></span><span
+                                        class="box"></span>Me aburro y espero a que me den algo para hacer.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P3_R3" name="P3_R" value="C" class="md-radiobtn">
+                                <label class="radio-label" for="P3_R3"><span></span><span class="check"></span><span
+                                        class="box"></span>Leyendo el libro o la pizarra.</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li>
+                    <h3>Marca la frase con las que te identifiques más.</h3>
+                    <div class="form-group form-md-radios">
+                        <div class="md-radio-list">
+                            <div class="md-radio">
+                                <input type="radio" id="P4_R1" name="P4_R" value="A" class="md-radiobtn">
+                                <label class="radio-label" for="P4_R1"><span></span><span class="check"></span><span
+                                        class="box"></span>Prefiero escuchar chistes que leer cómics.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P4_R2" name="P4_R" value="B" class="md-radiobtn">
+                                <label class="radio-label" for="P4_R2"><span></span><span class="check"></span><span
+                                        class="box"></span>Mis cuadernos y libretas están ordenados y bien presentados, me molestan
+                                    los tachones y las correcciones.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P4_R3" name="P4_R" value="C" class="md-radiobtn">
+                                <label class="radio-label" for="P4_R3"><span></span><span class="check"></span><span
+                                        class="box"></span>Me gusta tocar las cosas y tiendo a acercarme mucho a la gente cuando
+                                    hablo con alguien.</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+                <li>
+                    <h3>¿Cuál de las siguientes actividades disfrutas más?</h3>
+                    <div class="form-group form-md-radios">
+                        <div class="md-radio-list">
+                            <div class="md-radio">
+                                <input type="radio" id="P5_R1" name="P5_R" value="A" class="md-radiobtn">
+                                <label class="radio-label" for="P5_R1"><span></span><span class="check"></span><span
+                                        class="box"></span>Ver películas.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P5_R2" name="P5_R" value="B" class="md-radiobtn">
+                                <label class="radio-label" for="P5_R2"><span></span><span class="check"></span><span
+                                        class="box"></span>Escuchar música.</label>
+                            </div>
+                            <div class="md-radio">
+                                <input type="radio" id="P5_R3" name="P5_R" value="C" class="md-radiobtn">
+                                <label class="radio-label" for="P5_R3"><span></span><span class="check"></span><span
+                                        class="box"></span>Bailar.</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <hr>
+            </ol>
+            <div id="buttonContainer">
+              <button type="submit" id="send-button" onclick="calificarTest()">Enviar Resultados</button>
+              <button type="submit" onclick="cerrarEncuesta()">Cerrar Encuesta</button>
+            </div>
+            
+        </form>
+    </div>
+    <!-- FIN DEL TEMPLATE FORMULARIO-->
     <footer class="footer-test">
         <p> Crea tu leyenda - © 2023 Designed by Diego Pérez</p>
     </footer>
     <a href="#" id="scroll-to-top">Ir arriba</a>
+    <script src="js/visual.js"></script>
+    <script src="js/crud.js"></script>
 </body>
 </html>
